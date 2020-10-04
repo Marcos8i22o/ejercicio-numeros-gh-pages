@@ -20,5 +20,5 @@ $botonSiguiente.onclick = function () {
 
 
 function ocultarIngresoPrincipal () {
-    document.querySelector('#ingreso-cantidad-numeros').className = "oculto";
+    document.querySelector('#ingreso-principal').className = "oculto";
 }
