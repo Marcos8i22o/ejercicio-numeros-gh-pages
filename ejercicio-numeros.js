@@ -22,6 +22,7 @@ $botonSiguiente.onclick = function () {
 
 $botonGuardar.onclick = function () {
   guardarNumerosIngresados();
+  mostrarResultados();
 };
 
 function ocultarIngresoPrincipal() {
@@ -52,8 +53,54 @@ function guardarNumerosIngresados() {
   for (let i = 0; i < numerosIngresados.length; i++) {
     arrayNumerosIngresados.push(Number(numerosIngresados[i].value));
   }
+
+  calcular(arrayNumerosIngresados);
 }
 
 function mostrarBotonGuardar() {
   $botonGuardar.className = "";
+}
+
+function mostrarResultados() {
+  document.querySelector("#resultados").className = "";
+}
+
+function calcular(arreglo) {
+  calcularMasChico(arreglo);
+  calcularMasGrande(arreglo);
+  calcularPromedio(arreglo);
+  calcularMasRepetido(arreglo);
+}
+
+function calcularMasChico(arreglo) {
+  let masChico = arreglo[0];
+  for (let i = 1; i < arreglo.length; i++) {
+    if (arreglo[i] < masChico) {
+      masChico = arreglo[i];
+    }
+  }
+  return masChico;
+}
+
+function calcularMasGrande(arreglo) {
+  let masGrande = arreglo[0];
+  for (let i = 1; i < arreglo.length; i++) {
+    if (arreglo[i] > masGrande) {
+      masGrande = arreglo[i];
+    }
+  }
+  return masGrande;
+}
+
+function calcularPromedio (arreglo) {
+  let acum = 0;
+  let promedio;
+
+  for (let i = 0; i < arreglo.length; i++) {
+    acum += arreglo[i];
+  }
+
+  promedio = (acum / arreglo.length);
+  return promedio;
+
 }
