@@ -7,7 +7,7 @@
 // 4. obtener el número que más se repite y mostrarlo en un <em> pre-creado con el texto "El número más frecuente es..."
 
 const $botonSiguiente = document.querySelector("#siguiente");
-const $botonGuardar = document.querySelector("#guardar");
+const $botonMostrarResultados = document.querySelector("#mostrar-resultados");
 
 $botonSiguiente.onclick = function () {
   const cantidadIngresada = Number(
@@ -20,7 +20,7 @@ $botonSiguiente.onclick = function () {
   return false;
 };
 
-$botonGuardar.onclick = function () {
+$botonMostrarResultados.onclick = function () {
   guardarNumerosIngresados();
   mostrarResultados();
 };
@@ -33,7 +33,7 @@ function mostrarInputsNumeros(cantidadIngresada) {
   const $listaNumeros = document.querySelector("#lista-numeros");
 
   for (let i = 0; i < cantidadIngresada; i++) {
-    mostrarBotonGuardar();
+    mostrarBotonMostrarResultados();
 
     const $numeroAIngresar = document.createElement("li");
     const $input = document.createElement("input");
@@ -57,8 +57,8 @@ function guardarNumerosIngresados() {
   calcular(arrayNumerosIngresados);
 }
 
-function mostrarBotonGuardar() {
-  $botonGuardar.className = "";
+function mostrarBotonMostrarResultados() {
+  $botonMostrarResultados.className = "";
 }
 
 function mostrarResultados() {
